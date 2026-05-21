@@ -1,0 +1,30 @@
+flowchart LR
+    subgraph Producers
+        API[API / Services]
+    end
+
+    subgraph Redis
+        Q[(List / Stream<br/>job queue)]
+        DLQ[(Dead-letter<br/>queue)]
+    end
+
+    subgraph Workers
+        W1[Worker 1]
+        W2[Worker 2]
+        WN[Worker N]
+    end
+
+    subgraph Storage
+        DB[(PostgreSQL)]
+    end
+
+    API -->|LPUSH / XADD| Q
+    Q -->|BRPOP / XREADGROUP| W1
+    Q -->|BRPOP / XREADGROUP| W2
+    Q -->|BRPOP / XREADGROUP| WN
+    W1 --> DB
+    W2 --> DB
+    WN --> DB
+    W1 -.->|max retries exceeded| DLQ
+    W2 -.->|max retries exceeded| DLQ
+    WN -.->|max retries exceeded| DLQ
