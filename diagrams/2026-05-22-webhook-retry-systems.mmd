@@ -1,0 +1,22 @@
+sequenceDiagram
+    participant App as Your App
+    participant DB as PostgreSQL
+    participant Q as Retry Queue
+    participant W as Webhook Worker
+    participant R as Receiver
+
+    App->>DB: INSERT event + delivery record
+    App->>Q: enqueue delivery job
+    W->>Q: poll next due delivery
+    W->>R: POST webhook + Idempotency-Key
+    alt 2xx success
+        R-->>W: 200 OK
+        W->>DB: mark delivered
+    else 5xx / timeout
+        R-->>W: 503 / timeout
+        W->>DB: increment attempt, schedule next_retry_at
+        W->>Q: re-enqueue with backoff delay
+    else max retries exceeded
+        W->>DB: mark failed
+        W->>App: alert / DLQ
+    end

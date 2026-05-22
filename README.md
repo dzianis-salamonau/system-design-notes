@@ -39,6 +39,7 @@ Browse [`notes/`](notes/) chronologically, or search by topic. Each note follows
 | Date | Topic | Problem solved |
 |------|-------|----------------|
 | 2026-05-21 | [Redis queue architecture](notes/2026-05-21-redis-queue-architecture.md) | Decouple producers from slow consumers without losing work |
+| 2026-05-22 | [Webhook retry systems](notes/2026-05-22-webhook-retry-systems.md) | Deliver webhooks reliably when receivers are down or return 5xx |
 
 ---
 
