@@ -1,0 +1,28 @@
+flowchart TB
+    subgraph Metrics
+        Prom[Prometheus / metrics-server]
+    end
+
+    subgraph Control
+        HPA[Horizontal Pod Autoscaler]
+        Deploy[Deployment]
+    end
+
+    subgraph Workload
+        P1[Pod 1]
+        P2[Pod 2]
+        PN[Pod N]
+    end
+
+    subgraph Traffic
+        LB[Ingress / Load Balancer]
+    end
+
+    LB --> P1
+    LB --> P2
+    LB --> PN
+    Prom -->|CPU / memory / custom metric| HPA
+    HPA -->|scale replicas| Deploy
+    Deploy --> P1
+    Deploy --> P2
+    Deploy --> PN
