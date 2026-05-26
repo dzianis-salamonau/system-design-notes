@@ -1,0 +1,13 @@
+sequenceDiagram
+    participant API as Order Service
+    participant DB as PostgreSQL
+    participant Relay as Outbox Relay
+    participant Bus as Message Broker
+
+    API->>DB: BEGIN
+    API->>DB: INSERT order
+    API->>DB: INSERT outbox event
+    API->>DB: COMMIT
+    Relay->>DB: poll unpublished outbox rows
+    Relay->>Bus: publish OrderCreated
+    Relay->>DB: mark outbox row published
