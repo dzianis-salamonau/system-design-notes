@@ -43,6 +43,7 @@ Browse [`notes/`](notes/) chronologically, or search by topic. Each note follows
 | 2026-05-23 | [Kubernetes HPA scaling](notes/2026-05-23-kubernetes-hpa-scaling.md) | Scale pod replicas automatically when CPU, memory, or custom metrics cross thresholds |
 | 2026-05-24 | [PostgreSQL indexing strategies](notes/2026-05-24-postgresql-indexing-strategies.md) | Cut read latency on large tables without bloating writes and storage |
 | 2026-05-25 | [Transactional outbox pattern](notes/2026-05-25-transactional-outbox-pattern.md) | Publish domain events atomically with database writes — no dual-write bugs |
+| 2026-05-26 | [AI agent orchestration](notes/2026-05-26-ai-agent-orchestration.md) | Route complex tasks across specialized agents with tools, memory, and fallbacks |
 
 ---
 
