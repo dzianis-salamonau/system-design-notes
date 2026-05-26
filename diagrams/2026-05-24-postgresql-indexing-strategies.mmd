@@ -1,0 +1,12 @@
+flowchart LR
+    subgraph Query
+        API[API: SELECT by user_id, created_at]
+    end
+
+    subgraph PostgreSQL
+        T[(orders table<br/>10M rows)]
+        IDX[(composite index<br/>user_id, created_at DESC)]
+    end
+
+    API -->|index scan| IDX
+    IDX --> T

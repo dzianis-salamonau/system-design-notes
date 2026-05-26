@@ -41,6 +41,7 @@ Browse [`notes/`](notes/) chronologically, or search by topic. Each note follows
 | 2026-05-21 | [Redis queue architecture](notes/2026-05-21-redis-queue-architecture.md) | Decouple producers from slow consumers without losing work |
 | 2026-05-22 | [Webhook retry systems](notes/2026-05-22-webhook-retry-systems.md) | Deliver webhooks reliably when receivers are down or return 5xx |
 | 2026-05-23 | [Kubernetes HPA scaling](notes/2026-05-23-kubernetes-hpa-scaling.md) | Scale pod replicas automatically when CPU, memory, or custom metrics cross thresholds |
+| 2026-05-24 | [PostgreSQL indexing strategies](notes/2026-05-24-postgresql-indexing-strategies.md) | Cut read latency on large tables without bloating writes and storage |
 
 ---
 
