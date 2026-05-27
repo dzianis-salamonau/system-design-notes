@@ -1,0 +1,18 @@
+sequenceDiagram
+    participant C as Client
+    participant API as API
+    participant Cache as Redis
+    participant DB as PostgreSQL
+
+    C->>API: GET /product/42
+    API->>Cache: GET product:42
+    alt cache hit
+        Cache-->>API: cached JSON
+        API-->>C: 200 response
+    else cache miss
+        Cache-->>API: null
+        API->>DB: SELECT * FROM products WHERE id=42
+        DB-->>API: row
+        API->>Cache: SET product:42 EX 300
+        API-->>C: 200 response
+    end
