@@ -1,0 +1,17 @@
+flowchart TB
+    subgraph Router
+        App[Application]
+        R{tenant_id → shard}
+    end
+
+    subgraph Shard1
+        DB1[(Postgres shard 1<br/>tenants A–M)]
+    end
+
+    subgraph Shard2
+        DB2[(Postgres shard 2<br/>tenants N–Z)]
+    end
+
+    App --> R
+    R -->|tenant in A–M| DB1
+    R -->|tenant in N–Z| DB2
