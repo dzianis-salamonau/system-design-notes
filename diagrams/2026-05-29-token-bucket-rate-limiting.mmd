@@ -1,0 +1,18 @@
+flowchart LR
+    subgraph Edge
+        C[Clients]
+        GW[API Gateway]
+    end
+
+    subgraph Limiter
+        TB[Token bucket<br/>per API key]
+    end
+
+    subgraph Backend
+        API[API service]
+    end
+
+    C --> GW
+    GW -->|check tokens| TB
+    TB -->|allowed| API
+    TB -.->|429 Too Many Requests| C
