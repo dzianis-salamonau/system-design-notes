@@ -1,0 +1,12 @@
+sequenceDiagram
+    participant O as Orchestrator
+    participant I as Inventory
+    participant P as Payment
+    participant S as Shipping
+
+    O->>I: reserve stock
+    I-->>O: OK
+    O->>P: charge card
+    P-->>O: FAIL
+    O->>I: release stock (compensate)
+    O-->>O: saga aborted
