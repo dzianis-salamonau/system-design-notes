@@ -1,0 +1,21 @@
+stateDiagram-v2
+    [*] --> Closed
+    Closed --> Open: failure rate > threshold
+    Open --> HalfOpen: after cooldown timeout
+    HalfOpen --> Closed: probe request succeeds
+    HalfOpen --> Open: probe request fails
+
+    state Closed {
+        [*] --> Forwarding
+        Forwarding: All requests pass through
+    }
+
+    state Open {
+        [*] --> Rejecting
+        Rejecting: Fail fast, return fallback
+    }
+
+    state HalfOpen {
+        [*] --> Probing
+        Probing: Single test request allowed
+    }
