@@ -47,6 +47,9 @@ Browse [`notes/`](notes/) chronologically, or search by topic. Each note follows
 | 2026-05-27 | [Cache-aside with Redis](notes/2026-05-27-cache-aside-redis.md) | Serve hot reads from memory without sacrificing PostgreSQL as the source of truth |
 | 2026-05-28 | [Database sharding by tenant](notes/2026-05-28-database-sharding-by-tenant.md) | Isolate noisy tenants and scale writes beyond a single PostgreSQL instance |
 | 2026-05-29 | [Token bucket rate limiting](notes/2026-05-29-token-bucket-rate-limiting.md) | Protect APIs from abuse and traffic spikes with smooth, burst-tolerant limits per client |
+| 2026-05-30 | [CQRS read models](notes/2026-05-30-cqrs-read-models.md) | Optimize read paths separately when writes and queries have different shapes and scale |
+| 2026-05-31 | [Circuit breaker for downstream calls](notes/2026-05-31-circuit-breaker-downstream-calls.md) | Fail fast when dependencies are unhealthy instead of cascading timeouts |
+| 2026-06-01 | [Saga pattern for distributed transactions](notes/2026-06-01-saga-distributed-transactions.md) | Coordinate multi-service workflows with compensating actions instead of distributed 2PC |
 
 ---
 

@@ -1,0 +1,21 @@
+flowchart LR
+    subgraph Write
+        CMD[Command API]
+        WDB[(Write DB)]
+    end
+
+    subgraph Events
+        Bus[Event bus]
+        Proj[Projector]
+    end
+
+    subgraph Read
+        RDB[(Read DB / ES)]
+        QAPI[Query API]
+    end
+
+    CMD --> WDB
+    WDB -->|OrderCreated| Bus
+    Bus --> Proj
+    Proj --> RDB
+    QAPI --> RDB
