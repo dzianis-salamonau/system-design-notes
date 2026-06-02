@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant C as Client
+    participant API as API
+    participant DB as PostgreSQL
+
+    C->>API: POST /payments Idempotency-Key: abc-123
+    API->>DB: lookup key abc-123
+    alt first request
+        DB-->>API: not found
+        API->>DB: charge + store response for abc-123
+        API-->>C: 201 Created
+    else retry
+        DB-->>API: cached response
+        API-->>C: 201 Created (same body)
+    end
