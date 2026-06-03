@@ -1,0 +1,6 @@
+flowchart LR
+    P[Producer] --> Q[Main queue]
+    Q --> W[Worker]
+    W -->|success| Done[Ack]
+    W -->|fail after N retries| DLQ[Dead letter queue]
+    DLQ --> Ops[Alert + manual replay]
