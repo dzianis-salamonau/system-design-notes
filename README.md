@@ -52,6 +52,7 @@ Browse [`notes/`](notes/) chronologically, or search by topic. Each note follows
 | 2026-06-01 | [Saga pattern for distributed transactions](notes/2026-06-01-saga-distributed-transactions.md) | Coordinate multi-service workflows with compensating actions instead of distributed 2PC |
 | 2026-06-02 | [Idempotency keys for HTTP APIs](notes/2026-06-02-idempotency-keys-api.md) | Make POST/PUT safe to retry so network blips never double-charge or duplicate orders |
 | 2026-06-03 | [Dead letter queues](notes/2026-06-03-dead-letter-queues.md) | Isolate poison messages so the main queue keeps draining healthy work |
+| 2026-06-04 | [API gateway pattern](notes/2026-06-04-api-gateway-pattern.md) | Centralize auth, rate limits, and routing at the edge so backends stay domain-focused |
 
 ---
 

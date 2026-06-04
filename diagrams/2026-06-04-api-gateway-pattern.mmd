@@ -1,0 +1,6 @@
+flowchart TB
+    C[Clients] --> GW[API Gateway]
+    GW -->|auth + rate limit| A[Orders API]
+    GW --> B[Users API]
+    GW --> C2[Payments API]
+    GW -.->|JWT validate| Auth[Auth service]
