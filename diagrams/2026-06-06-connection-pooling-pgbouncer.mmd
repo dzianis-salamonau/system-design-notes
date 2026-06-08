@@ -1,0 +1,14 @@
+flowchart LR
+    subgraph Apps
+        A1[API pod 1]
+        A2[API pod 2]
+        AN[API pod N]
+    end
+
+    PB[PgBouncer]
+    PG[(PostgreSQL)]
+
+    A1 --> PB
+    A2 --> PB
+    AN --> PB
+    PB -->|pooled connections| PG
