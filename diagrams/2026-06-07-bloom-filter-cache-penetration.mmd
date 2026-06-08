@@ -1,0 +1,5 @@
+flowchart TB
+    API[API] --> BF{Bloom filter<br/>key may exist?}
+    BF -->|definitely not| Miss404[Return 404 fast]
+    BF -->|maybe| Redis[Redis cache]
+    Redis -->|miss| DB[(PostgreSQL)]
