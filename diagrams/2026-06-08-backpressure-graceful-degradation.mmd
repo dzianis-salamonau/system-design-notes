@@ -1,0 +1,5 @@
+flowchart TB
+    C[Clients] --> Q[Request queue]
+    Q -->|under capacity| S[Service]
+    Q -->|queue full| Reject[503 + Retry-After]
+    S -->|overload| Shed[Drop low-priority work]
