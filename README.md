@@ -53,6 +53,7 @@ Browse [`notes/`](notes/) chronologically, or search by topic. Each note follows
 | 2026-06-02 | [Idempotency keys for HTTP APIs](notes/2026-06-02-idempotency-keys-api.md) | Make POST/PUT safe to retry so network blips never double-charge or duplicate orders |
 | 2026-06-03 | [Dead letter queues](notes/2026-06-03-dead-letter-queues.md) | Isolate poison messages so the main queue keeps draining healthy work |
 | 2026-06-04 | [API gateway pattern](notes/2026-06-04-api-gateway-pattern.md) | Centralize auth, rate limits, and routing at the edge so backends stay domain-focused |
+| 2026-06-05 | [Blue-green deployment](notes/2026-06-05-blue-green-deployment.md) | Cut over traffic between two environments for instant rollback and minimal downtime |
 | 2026-06-06 | [Connection pooling with PgBouncer](notes/2026-06-06-connection-pooling-pgbouncer.md) | Multiplex thousands of app connections without exhausting PostgreSQL max_connections |
 | 2026-06-07 | [Bloom filter for cache penetration](notes/2026-06-07-bloom-filter-cache-penetration.md) | Block guaranteed-miss lookups before bots hammer PostgreSQL with random IDs |
 | 2026-06-08 | [Backpressure and graceful degradation](notes/2026-06-08-backpressure-graceful-degradation.md) | Shed work deliberately when load exceeds capacity instead of cascading failure |

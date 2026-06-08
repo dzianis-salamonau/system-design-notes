@@ -1,0 +1,4 @@
+flowchart LR
+    LB[Load balancer] -->|100% traffic| Green[Green v2.4]
+    Blue[Blue v2.3] -.->|standby| LB
+    LB -.->|switch| Blue
