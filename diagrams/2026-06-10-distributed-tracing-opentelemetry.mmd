@@ -1,0 +1,9 @@
+flowchart LR
+    C[Client] -->|traceparent| GW[Gateway]
+    GW --> A[Service A]
+    A --> B[Service B]
+    A --> C2[Service C]
+    A -.->|spans| OTel[OpenTelemetry Collector]
+    B -.-> OTel
+    C2 -.-> OTel
+    OTel --> Jaeger[Jaeger / Tempo]
