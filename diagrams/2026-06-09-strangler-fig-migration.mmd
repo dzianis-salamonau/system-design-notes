@@ -1,0 +1,4 @@
+flowchart LR
+    C[Clients] --> Proxy[Facade / router]
+    Proxy -->|legacy routes| Mono[Monolith]
+    Proxy -->|new routes| MS[New microservice]
