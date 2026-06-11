@@ -1,0 +1,11 @@
+flowchart TB
+    subgraph Kubelet
+        LP[Liveness probe]
+        RP[Readiness probe]
+    end
+
+    Pod[App container] --> LP
+    Pod --> RP
+    LP -->|fails 3x| Restart[Restart container]
+    RP -->|fails| Endpoints[Removed from Service endpoints]
+    RP -->|passes| Traffic[Receives traffic]
