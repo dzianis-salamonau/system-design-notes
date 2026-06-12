@@ -60,6 +60,7 @@ Browse [`notes/`](notes/) chronologically, or search by topic. Each note follows
 | 2026-06-09 | [Strangler fig migration](notes/2026-06-09-strangler-fig-migration.md) | Incrementally replace a legacy monolith by routing traffic to new services |
 | 2026-06-10 | [Distributed tracing with OpenTelemetry](notes/2026-06-10-distributed-tracing-opentelemetry.md) | Follow one request across services when logs alone can't explain p99 latency |
 | 2026-06-11 | [Liveness and readiness probes](notes/2026-06-11-liveness-readiness-probes.md) | Tell Kubernetes when to restart a pod vs when to stop sending traffic |
+| 2026-06-12 | [Feature flags for progressive delivery](notes/2026-06-12-feature-flags-progressive-delivery.md) | Ship code daily but expose new behavior to 1% of users first |
 
 ---
 

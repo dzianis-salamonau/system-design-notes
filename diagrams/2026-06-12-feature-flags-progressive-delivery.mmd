@@ -1,0 +1,16 @@
+flowchart LR
+    subgraph App
+        API[API service]
+        FF[Feature flag client]
+    end
+
+    subgraph Control
+        Store[(Flag store)]
+        Admin[Admin UI]
+    end
+
+    Admin --> Store
+    API --> FF
+    FF -->|evaluate user %| Store
+    FF -->|enabled| New[New code path]
+    FF -->|disabled| Old[Legacy code path]
