@@ -1,0 +1,5 @@
+flowchart LR
+    P[Producer] -->|key=user-42| T1[Partition 0]
+    P -->|key=user-99| T2[Partition 1]
+    T1 --> C1[Consumer A]
+    T2 --> C2[Consumer B]
