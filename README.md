@@ -61,6 +61,9 @@ Browse [`notes/`](notes/) chronologically, or search by topic. Each note follows
 | 2026-06-10 | [Distributed tracing with OpenTelemetry](notes/2026-06-10-distributed-tracing-opentelemetry.md) | Follow one request across services when logs alone can't explain p99 latency |
 | 2026-06-11 | [Liveness and readiness probes](notes/2026-06-11-liveness-readiness-probes.md) | Tell Kubernetes when to restart a pod vs when to stop sending traffic |
 | 2026-06-12 | [Feature flags for progressive delivery](notes/2026-06-12-feature-flags-progressive-delivery.md) | Ship code daily but expose new behavior to 1% of users first |
+| 2026-06-13 | [Consistent hashing](notes/2026-06-13-consistent-hashing.md) | Add or remove cache nodes without remapping every key on the ring |
+| 2026-06-14 | [Kafka partitions and ordering](notes/2026-06-14-kafka-partitions-ordering.md) | Guarantee event order per entity while scaling consumers across partitions |
+| 2026-06-15 | [Read replicas and replication lag](notes/2026-06-15-read-replicas-replication-lag.md) | Offload read traffic to replicas without ignoring replication lag |
 
 ---
 

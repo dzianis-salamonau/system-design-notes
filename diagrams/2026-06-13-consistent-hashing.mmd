@@ -1,0 +1,9 @@
+flowchart TB
+    subgraph Ring
+        N1[Node A<br/>0-85M]
+        N2[Node B<br/>85-170M]
+        N3[Node C<br/>170-255M]
+    end
+
+    Key[key hash] --> N2
+    N2 -->|node fails| N3
