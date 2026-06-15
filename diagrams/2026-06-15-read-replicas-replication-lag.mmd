@@ -1,0 +1,4 @@
+flowchart LR
+    App[App] -->|writes| Primary[(Primary)]
+    Primary -->|async replication| Replica[(Read replica)]
+    App2[Read API] -->|SELECT| Replica
