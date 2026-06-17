@@ -1,0 +1,10 @@
+flowchart TB
+    subgraph Service
+        PoolA[Pool: payments<br/>max 10]
+        PoolB[Pool: search<br/>max 20]
+    end
+
+    PoolA --> Pay[Payment API]
+    PoolB --> Search[Search API]
+    Search -.->|slow| PoolB
+    Pay -->|isolated| OK[Checkout still OK]

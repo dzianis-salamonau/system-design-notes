@@ -64,6 +64,8 @@ Browse [`notes/`](notes/) chronologically, or search by topic. Each note follows
 | 2026-06-13 | [Consistent hashing](notes/2026-06-13-consistent-hashing.md) | Add or remove cache nodes without remapping every key on the ring |
 | 2026-06-14 | [Kafka partitions and ordering](notes/2026-06-14-kafka-partitions-ordering.md) | Guarantee event order per entity while scaling consumers across partitions |
 | 2026-06-15 | [Read replicas and replication lag](notes/2026-06-15-read-replicas-replication-lag.md) | Offload read traffic to replicas without ignoring replication lag |
+| 2026-06-16 | [Bulkhead pattern](notes/2026-06-16-bulkhead-pattern.md) | Isolate thread pools per dependency so one slow service can't exhaust all resources |
+| 2026-06-17 | [CDN edge caching](notes/2026-06-17-cdn-edge-caching.md) | Serve static assets from PoPs near users to cut origin load and latency |
 
 ---
 
