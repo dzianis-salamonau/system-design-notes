@@ -1,0 +1,4 @@
+flowchart LR
+    User[User] --> CDN[CDN edge]
+    CDN -->|cache hit| Asset[Static asset]
+    CDN -->|cache miss| Origin[Origin S3 / API]
