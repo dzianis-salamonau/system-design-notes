@@ -1,0 +1,6 @@
+flowchart LR
+    CMD[Command] --> ES[(Event store)]
+    ES --> Proj1[Order list projector]
+    ES --> Proj2[Inventory projector]
+    Proj1 --> RM1[(Read model 1)]
+    Proj2 --> RM2[(Read model 2)]

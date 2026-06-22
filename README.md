@@ -66,6 +66,11 @@ Browse [`notes/`](notes/) chronologically, or search by topic. Each note follows
 | 2026-06-15 | [Read replicas and replication lag](notes/2026-06-15-read-replicas-replication-lag.md) | Offload read traffic to replicas without ignoring replication lag |
 | 2026-06-16 | [Bulkhead pattern](notes/2026-06-16-bulkhead-pattern.md) | Isolate thread pools per dependency so one slow service can't exhaust all resources |
 | 2026-06-17 | [CDN edge caching](notes/2026-06-17-cdn-edge-caching.md) | Serve static assets from PoPs near users to cut origin load and latency |
+| 2026-06-18 | [Event sourcing](notes/2026-06-18-event-sourcing.md) | Store state as append-only domain events and rebuild any projection |
+| 2026-06-19 | [Graceful shutdown](notes/2026-06-19-graceful-shutdown.md) | Drain in-flight requests before killing a pod during deploys and scale-down |
+| 2026-06-20 | [Correlation IDs and structured logging](notes/2026-06-20-correlation-ids-structured-logging.md) | Tie every log line to one request ID for cross-service debugging |
+| 2026-06-21 | [Write-through cache](notes/2026-06-21-write-through-cache.md) | Update cache and database together on writes for fresh reads |
+| 2026-06-22 | [Cursor pagination](notes/2026-06-22-cursor-pagination.md) | Paginate large datasets with keyset cursors instead of slow OFFSET scans |
 
 ---
 
