@@ -1,0 +1,5 @@
+flowchart LR
+    Client[Client] -->|cursor=eyJpZCI6...| API[API]
+    API --> DB[(PostgreSQL)]
+    DB -->|WHERE id > lastId<br/>ORDER BY id LIMIT 20| API
+    API -->|next_cursor| Client
