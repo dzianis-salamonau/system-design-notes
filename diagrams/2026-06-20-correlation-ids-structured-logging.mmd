@@ -1,0 +1,4 @@
+flowchart LR
+    GW[Gateway<br/>X-Request-Id] --> A[Service A<br/>correlation_id in logs]
+    A --> B[Service B<br/>same correlation_id]
+    B --> Q[Queue message<br/>trace + correlation attrs]
