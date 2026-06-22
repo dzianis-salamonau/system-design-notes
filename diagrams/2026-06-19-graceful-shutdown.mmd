@@ -1,0 +1,10 @@
+sequenceDiagram
+    participant LB as Load balancer
+    participant Pod as Pod
+    participant K8s as Kubernetes
+
+    K8s->>Pod: SIGTERM
+    Pod->>LB: readiness fails
+    LB--xPod: stop new requests
+    Pod->>Pod: drain in-flight (30s)
+    Pod->>K8s: exit 0
