@@ -71,6 +71,10 @@ Browse [`notes/`](notes/) chronologically, or search by topic. Each note follows
 | 2026-06-20 | [Correlation IDs and structured logging](notes/2026-06-20-correlation-ids-structured-logging.md) | Tie every log line to one request ID for cross-service debugging |
 | 2026-06-21 | [Write-through cache](notes/2026-06-21-write-through-cache.md) | Update cache and database together on writes for fresh reads |
 | 2026-06-22 | [Cursor pagination](notes/2026-06-22-cursor-pagination.md) | Paginate large datasets with keyset cursors instead of slow OFFSET scans |
+| 2026-06-23 | [Optimistic locking](notes/2026-06-23-optimistic-locking.md) | Prevent lost updates on concurrent writes using a version column instead of row locks |
+| 2026-06-24 | [Service mesh and sidecar proxy](notes/2026-06-24-service-mesh-sidecar-proxy.md) | Add mTLS, retries, and telemetry to every service without touching app code |
+| 2026-06-25 | [Multi-region active-active](notes/2026-06-25-multi-region-active-active.md) | Serve writes from multiple regions for global latency and automatic region failover |
+| 2026-06-26 | [Long polling vs SSE vs WebSockets](notes/2026-06-26-long-polling-sse-websockets.md) | Pick the right real-time transport so you don't over-engineer one-way push |
 
 ---
 

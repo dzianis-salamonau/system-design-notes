@@ -1,0 +1,13 @@
+flowchart TD
+    DNS[Global DNS\nGeoDNS / Anycast]
+    DNS -->|nearest region| EU[Region: EU-WEST]
+    DNS -->|nearest region| US[Region: US-EAST]
+    DNS -->|nearest region| AP[Region: AP-SOUTHEAST]
+
+    EU <-->|async replication| US
+    US <-->|async replication| AP
+    AP <-->|async replication| EU
+
+    EU --- DBeu[(DB primary EU)]
+    US --- DBus[(DB primary US)]
+    AP --- DBap[(DB primary AP)]

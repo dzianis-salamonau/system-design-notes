@@ -1,0 +1,12 @@
+flowchart LR
+    subgraph LP["Long Polling"]
+        C1[Client] -->|GET /updates - holds open| S1[Server]
+        S1 -->|event fires - response| C1
+    end
+    subgraph SE["SSE"]
+        C2[Client] -->|GET /stream| S2[Server]
+        S2 -->|data: event stream| C2
+    end
+    subgraph WS["WebSocket"]
+        C3[Client] <-->|ws:// full-duplex| S3[Server]
+    end

@@ -1,0 +1,12 @@
+sequenceDiagram
+    participant C1 as Client A
+    participant C2 as Client B
+    participant DB as PostgreSQL
+
+    C1->>DB: SELECT id, version FROM orders WHERE id=1
+    C2->>DB: SELECT id, version FROM orders WHERE id=1
+    Note over C1,C2: Both see version=5
+    C1->>DB: UPDATE ... WHERE id=1 AND version=5
+    DB-->>C1: 1 row affected ✅
+    C2->>DB: UPDATE ... WHERE id=1 AND version=5
+    DB-->>C2: 0 rows affected ❌ conflict → retry

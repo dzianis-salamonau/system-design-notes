@@ -1,0 +1,12 @@
+flowchart LR
+    subgraph PodA["Pod: Service A"]
+        A[App A] <-->|localhost| SA[Envoy Sidecar]
+    end
+    subgraph PodB["Pod: Service B"]
+        SB[Envoy Sidecar] <-->|localhost| B[App B]
+    end
+    SA -->|mTLS| SB
+    CP[Control Plane\nIstiod] -.->|xDS config| SA
+    CP -.->|xDS config| SB
+    SA -->|metrics + traces| OBS[Prometheus / Jaeger]
+    SB -->|metrics + traces| OBS
