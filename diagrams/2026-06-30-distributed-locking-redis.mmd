@@ -1,0 +1,14 @@
+sequenceDiagram
+    participant P1 as Process 1
+    participant P2 as Process 2
+    participant R as Redis
+
+    P1->>R: SET lock:job token1 NX PX 30000
+    R-->>P1: OK (acquired)
+    P2->>R: SET lock:job token2 NX PX 30000
+    R-->>P2: nil (held by P1)
+    Note over P1: Exclusive work
+    P1->>R: Lua release if GET==token1 then DEL
+    R-->>P1: released
+    P2->>R: SET lock:job token2 NX PX 30000
+    R-->>P2: OK (acquired)

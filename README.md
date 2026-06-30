@@ -75,6 +75,10 @@ Browse [`notes/`](notes/) chronologically, or search by topic. Each note follows
 | 2026-06-24 | [Service mesh and sidecar proxy](notes/2026-06-24-service-mesh-sidecar-proxy.md) | Add mTLS, retries, and telemetry to every service without touching app code |
 | 2026-06-25 | [Multi-region active-active](notes/2026-06-25-multi-region-active-active.md) | Serve writes from multiple regions for global latency and automatic region failover |
 | 2026-06-26 | [Long polling vs SSE vs WebSockets](notes/2026-06-26-long-polling-sse-websockets.md) | Pick the right real-time transport so you don't over-engineer one-way push |
+| 2026-06-27 | [Two-phase commit](notes/2026-06-27-two-phase-commit.md) | Atomically commit a write across multiple databases with no partial success |
+| 2026-06-28 | [Leader election and Raft](notes/2026-06-28-leader-election-raft.md) | Elect one authoritative node automatically so a cluster survives failures without manual intervention |
+| 2026-06-29 | [Object vs block vs file storage](notes/2026-06-29-object-block-file-storage.md) | Pick the right storage primitive before you build to avoid performance ceilings and cost explosions |
+| 2026-06-30 | [Distributed locking with Redis](notes/2026-06-30-distributed-locking-redis.md) | Coordinate exclusive access across processes using SET NX and a unique token for safe release |
 
 ---
 

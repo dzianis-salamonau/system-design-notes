@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant F as Follower A
+    participant C as Candidate B
+    participant F2 as Follower C
+
+    Note over F,F2: Leader heartbeat stops (crash)
+    Note over F: Election timeout fires
+    Note over C: Increments term, becomes Candidate
+    C->>F: RequestVote term=4
+    C->>F2: RequestVote term=4
+    F-->>C: Vote YES
+    F2-->>C: Vote YES
+    Note over C: Majority — becomes Leader
+    C->>F: Heartbeat (AppendEntries)
+    C->>F2: Heartbeat (AppendEntries)

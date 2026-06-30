@@ -1,0 +1,14 @@
+sequenceDiagram
+    participant C as Coordinator
+    participant W as Wallet DB
+    participant I as Inventory DB
+
+    C->>W: Phase 1 — PREPARE
+    C->>I: Phase 1 — PREPARE
+    W-->>C: VOTE YES
+    I-->>C: VOTE YES
+    Note over C: All YES → decide COMMIT
+    C->>W: Phase 2 — COMMIT
+    C->>I: Phase 2 — COMMIT
+    W-->>C: ACK
+    I-->>C: ACK

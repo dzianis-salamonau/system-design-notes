@@ -1,0 +1,10 @@
+flowchart TD
+    App[Application]
+
+    App -->|user uploads, static assets, backups| OBJ[Object Storage\nS3 / GCS / Azure Blob]
+    App -->|database volumes, VM disks, PVCs| BLK[Block Storage\nEBS / GCP PD / Azure Disk]
+    App -->|shared config, NFS mounts| FIL[File Storage\nEFS / Filestore / Azure Files]
+
+    OBJ -->|CDN origin| CDN[CDN Edge]
+    BLK -->|attached exclusively| VM[EC2 / VM]
+    FIL -->|NFS mount| Many[Many Instances]
