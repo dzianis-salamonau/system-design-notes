@@ -79,6 +79,8 @@ Browse [`notes/`](notes/) chronologically, or search by topic. Each note follows
 | 2026-06-28 | [Leader election and Raft](notes/2026-06-28-leader-election-raft.md) | Elect one authoritative node automatically so a cluster survives failures without manual intervention |
 | 2026-06-29 | [Object vs block vs file storage](notes/2026-06-29-object-block-file-storage.md) | Pick the right storage primitive before you build to avoid performance ceilings and cost explosions |
 | 2026-06-30 | [Distributed locking with Redis](notes/2026-06-30-distributed-locking-redis.md) | Coordinate exclusive access across processes using SET NX and a unique token for safe release |
+| 2026-07-01 | [Thundering herd and request coalescing](notes/2026-07-01-thundering-herd-request-coalescing.md) | Collapse thousands of cache misses on the same key into one database query |
+| 2026-07-02 | [Pub/Sub vs message queues](notes/2026-07-02-pubsub-vs-message-queues.md) | Fan-out events to many subscribers or buffer work for one consumer — pick the right primitive |
 
 ---
 

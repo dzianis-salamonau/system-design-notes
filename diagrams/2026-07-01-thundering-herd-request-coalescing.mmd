@@ -1,0 +1,20 @@
+sequenceDiagram
+    participant C1 as Client 1
+    participant C2 as Client 2..N
+    participant API as API (singleflight)
+    participant R as Redis
+    participant DB as PostgreSQL
+
+    C1->>API: GET /products/42
+    C2->>API: GET /products/42
+    API->>R: GET product:42
+    R-->>API: nil (expired)
+    Note over API: First miss — start ONE loader
+    API->>DB: SELECT * FROM products WHERE id=42
+    par Coalesced waiters
+        C2->>API: waits on same promise
+    end
+    DB-->>API: row
+    API->>R: SET product:42 EX 60
+    API-->>C1: 200 + body
+    API-->>C2: 200 + body

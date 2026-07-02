@@ -1,0 +1,13 @@
+flowchart LR
+    subgraph PubSub["Pub/Sub (fan-out)"]
+        P1[Publisher] -->|order.placed| B1[Topic / Channel]
+        B1 --> S1[Email Service]
+        B1 --> S2[Analytics]
+        B1 --> S3[Warehouse Sync]
+    end
+
+    subgraph Queue["Message Queue (work buffer)"]
+        P2[Producer] -->|send-email job| Q1[Queue]
+        Q1 --> W1[Worker 1]
+        Q1 --> W2[Worker 2]
+    end
