@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant C as Client
+    participant API as API
+    participant P as Payment Provider
+
+    C->>API: POST /charge
+    API->>P: charge()
+    P-->>API: 503
+    Note over API: wait 1.2s (base + jitter)
+    API->>P: retry 1
+    P-->>API: 503
+    Note over API: wait 2.7s (base + jitter)
+    API->>P: retry 2
+    P-->>API: 200 OK
+    API-->>C: 200 OK

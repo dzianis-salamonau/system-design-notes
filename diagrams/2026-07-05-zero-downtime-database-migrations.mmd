@@ -1,0 +1,11 @@
+flowchart LR
+    subgraph Expand["Phase 1 — Expand"]
+        A1[Add new column] --> A2[Deploy v2 dual-write]
+    end
+    subgraph Migrate["Phase 2 — Migrate"]
+        B1[Backfill job] --> B2[Verify data]
+    end
+    subgraph Contract["Phase 3 — Contract"]
+        C1[Deploy v3 new only] --> C2[Drop old column]
+    end
+    Expand --> Migrate --> Contract

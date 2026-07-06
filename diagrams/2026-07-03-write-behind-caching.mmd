@@ -1,0 +1,14 @@
+sequenceDiagram
+    participant C as Client
+    participant API as API
+    participant R as Redis
+    participant W as Flush Worker
+    participant DB as PostgreSQL
+
+    C->>API: POST /posts/42/like
+    API->>R: INCR post:42:likes
+    API-->>C: 200 OK (instant)
+    Note over W: Batched flush every 2s
+    W->>R: GET dirty keys
+    W->>DB: UPDATE posts SET likes = likes + N
+    W->>R: DEL dirty flag

@@ -81,6 +81,10 @@ Browse [`notes/`](notes/) chronologically, or search by topic. Each note follows
 | 2026-06-30 | [Distributed locking with Redis](notes/2026-06-30-distributed-locking-redis.md) | Coordinate exclusive access across processes using SET NX and a unique token for safe release |
 | 2026-07-01 | [Thundering herd and request coalescing](notes/2026-07-01-thundering-herd-request-coalescing.md) | Collapse thousands of cache misses on the same key into one database query |
 | 2026-07-02 | [Pub/Sub vs message queues](notes/2026-07-02-pubsub-vs-message-queues.md) | Fan-out events to many subscribers or buffer work for one consumer — pick the right primitive |
+| 2026-07-03 | [Write-behind caching](notes/2026-07-03-write-behind-caching.md) | Acknowledge writes instantly by flushing to the database asynchronously in batches |
+| 2026-07-04 | [Canary deployments](notes/2026-07-04-canary-deployments.md) | Route a small slice of real traffic to a new version before promoting to 100% |
+| 2026-07-05 | [Zero-downtime database migrations](notes/2026-07-05-zero-downtime-database-migrations.md) | Rename columns and change types using expand/contract so old and new code coexist |
+| 2026-07-06 | [Exponential backoff and jitter](notes/2026-07-06-exponential-backoff-jitter.md) | Retry transient failures with increasing delays and randomised spread to avoid retry storms |
 
 ---
 
