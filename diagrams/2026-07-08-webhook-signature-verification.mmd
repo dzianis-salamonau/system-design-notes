@@ -1,0 +1,13 @@
+sequenceDiagram
+    participant S as Stripe
+    participant API as Your API
+    participant DB as Database
+
+    S->>API: POST /webhooks/stripe + Stripe-Signature header
+    API->>API: HMAC-SHA256 verify (constant-time)
+    alt Invalid
+        API-->>S: 400 Bad Request
+    else Valid
+        API->>DB: Process event (idempotent)
+        API-->>S: 200 OK
+    end

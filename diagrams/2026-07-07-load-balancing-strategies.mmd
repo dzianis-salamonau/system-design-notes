@@ -1,0 +1,7 @@
+flowchart LR
+    C[Clients] --> LB[Load Balancer]
+    LB -->|round robin / least conn / hash| A[Server A]
+    LB --> B[Server B]
+    LB --> C2[Server C]
+    LB --> D[Server D]
+    A & B & C2 & D -->|health probe| LB

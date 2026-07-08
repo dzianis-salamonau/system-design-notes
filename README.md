@@ -85,6 +85,8 @@ Browse [`notes/`](notes/) chronologically, or search by topic. Each note follows
 | 2026-07-04 | [Canary deployments](notes/2026-07-04-canary-deployments.md) | Route a small slice of real traffic to a new version before promoting to 100% |
 | 2026-07-05 | [Zero-downtime database migrations](notes/2026-07-05-zero-downtime-database-migrations.md) | Rename columns and change types using expand/contract so old and new code coexist |
 | 2026-07-06 | [Exponential backoff and jitter](notes/2026-07-06-exponential-backoff-jitter.md) | Retry transient failures with increasing delays and randomised spread to avoid retry storms |
+| 2026-07-07 | [Load balancing strategies](notes/2026-07-07-load-balancing-strategies.md) | Pick the right algorithm — round robin, least connections, or consistent hash — for your workload shape |
+| 2026-07-08 | [Webhook signature verification](notes/2026-07-08-webhook-signature-verification.md) | Verify HMAC signatures on inbound webhooks before they trigger payments or state changes |
 
 ---
 
