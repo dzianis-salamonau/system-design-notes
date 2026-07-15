@@ -1,0 +1,7 @@
+flowchart TD
+    Q[Search query] --> D{Scale and features?}
+    D -->|"< ~10M rows, basic ranking"| PG[PostgreSQL FTS - tsvector + GIN]
+    D -->|"typo tolerance, facets, aggregations"| ES[Elasticsearch / OpenSearch]
+    PG --> APP[Application]
+    ES --> APP
+    PGDB[(Postgres source of truth)] -->|CDC / sync| ES

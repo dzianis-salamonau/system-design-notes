@@ -1,0 +1,16 @@
+sequenceDiagram
+    participant C as Client
+    participant A as Auth Service
+    participant R as Redis (refresh tokens)
+    participant S as API Service
+
+    C->>A: POST /login
+    A->>R: store refresh token (30d)
+    A-->>C: access JWT (15 min) + refresh cookie
+    C->>S: GET /orders + Bearer JWT
+    S->>S: verify signature locally
+    S-->>C: 200
+    C->>A: POST /token/refresh
+    A->>R: validate + rotate
+    A-->>C: new access JWT
+    Note over A,R: Compromise → revoke refresh token

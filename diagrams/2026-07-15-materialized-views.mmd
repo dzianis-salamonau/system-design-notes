@@ -1,0 +1,5 @@
+flowchart LR
+    W[Order writes] --> T[(orders + order_items)]
+    T -->|REFRESH every 15 min| MV[(materialized view)]
+    MV -->|indexed 5ms reads| D[Dashboard API]
+    W -.->|no impact| MV

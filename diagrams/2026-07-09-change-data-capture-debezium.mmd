@@ -1,0 +1,7 @@
+flowchart LR
+    App[Application] -->|normal writes| PG[(PostgreSQL)]
+    PG -->|WAL / logical replication| DBZ[Debezium Connector]
+    DBZ -->|change events| K[Kafka topic per table]
+    K --> ES[Elasticsearch Sink]
+    K --> RC[Redis Cache Invalidator]
+    K --> SF[Snowflake Sink]

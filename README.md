@@ -87,6 +87,13 @@ Browse [`notes/`](notes/) chronologically, or search by topic. Each note follows
 | 2026-07-06 | [Exponential backoff and jitter](notes/2026-07-06-exponential-backoff-jitter.md) | Retry transient failures with increasing delays and randomised spread to avoid retry storms |
 | 2026-07-07 | [Load balancing strategies](notes/2026-07-07-load-balancing-strategies.md) | Pick the right algorithm — round robin, least connections, or consistent hash — for your workload shape |
 | 2026-07-08 | [Webhook signature verification](notes/2026-07-08-webhook-signature-verification.md) | Verify HMAC signatures on inbound webhooks before they trigger payments or state changes |
+| 2026-07-09 | [Change data capture with Debezium](notes/2026-07-09-change-data-capture-debezium.md) | Stream every database change from the WAL to sync caches and search indexes without dual-writes |
+| 2026-07-10 | [API versioning strategies](notes/2026-07-10-api-versioning-strategies.md) | Evolve APIs without breaking installed clients using adapters over a shared core and sunset headers |
+| 2026-07-11 | [Full-text search: PostgreSQL vs Elasticsearch](notes/2026-07-11-full-text-search-postgres-elasticsearch.md) | Ship search with tsvector and pg_trgm first — know the real crossover point to Elasticsearch |
+| 2026-07-12 | [Hot partitions and the celebrity problem](notes/2026-07-12-hot-partitions-celebrity-problem.md) | Fix skewed access with key salting, caching, and hybrid fan-out — re-sharding can't save you |
+| 2026-07-13 | [Batch vs stream processing](notes/2026-07-13-batch-vs-stream-processing.md) | Choose per pipeline: seconds-level reactions need streams, auditable numbers need batch |
+| 2026-07-14 | [JWT vs server-side sessions](notes/2026-07-14-jwt-vs-sessions.md) | Combine short-lived JWTs with rotating refresh tokens for local verification and bounded revocation |
+| 2026-07-15 | [Materialized views](notes/2026-07-15-materialized-views.md) | Precompute expensive aggregations into indexable snapshots refreshed on your freshness budget |
 
 ---
 

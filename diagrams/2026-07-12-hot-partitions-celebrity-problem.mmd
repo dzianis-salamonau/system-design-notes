@@ -1,0 +1,8 @@
+flowchart TD
+    R[Requests for celebrity:42] --> D{Mitigation}
+    D --> C[Cache absorbs reads]
+    D --> S["Key salting celebrity:42#0..N"]
+    D --> F[Fan-out on read for mega-accounts]
+    C --> P1[(Partition 7 - protected)]
+    S --> P2[(Partitions 0..N share writes)]
+    F --> P3[(Merge at query time)]

@@ -1,0 +1,8 @@
+flowchart LR
+    TX[Transactions] --> K[Kafka]
+    K -->|stream: seconds| F[Flink fraud scoring]
+    F --> A[Block / alert]
+    K -->|sink| L[(Data Lake / S3)]
+    L -->|batch: nightly| B[Spark / dbt reports]
+    B --> W[(Warehouse)]
+    K -->|micro-batch: 1 min| D[Dashboard aggregates]

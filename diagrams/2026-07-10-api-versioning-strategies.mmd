@@ -1,0 +1,8 @@
+flowchart LR
+    C1[Old mobile app] -->|/v1/users/42| GW[API Gateway]
+    C2[New web app] -->|/v2/users/42| GW
+    GW --> H1[v1 handler adapter]
+    GW --> H2[v2 handler]
+    H1 -->|maps full_name to name| CORE[Shared domain core]
+    H2 --> CORE
+    CORE --> DB[(Database)]
