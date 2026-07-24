@@ -1,0 +1,7 @@
+flowchart LR
+    T[Telemetry] --> SLI["SLI: good / total events"]
+    SLI --> SLO["SLO: 99.9% over 30 days"]
+    SLO --> EB["Error budget: 0.1% ≈ 43 min/month"]
+    EB -->|healthy| SHIP[Ship features]
+    EB -->|burning fast| ALERT[Burn-rate alerts]
+    EB -->|exhausted| FREEZE[Reliability work only]

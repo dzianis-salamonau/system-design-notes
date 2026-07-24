@@ -1,0 +1,9 @@
+flowchart LR
+    subgraph SF["Snowflake ID (64 bits)"]
+        direction LR
+        TS["41 bits timestamp"] --- MID["10 bits machine ID"] --- SEQ["12 bits sequence"]
+    end
+    G1[Node 1] -->|local generation, no network| IDS[Unique sortable IDs]
+    G2[Node 2] --> IDS
+    G3[Node 3] --> IDS
+    ZK[Coordination store assigns machine IDs] -.-> G1 & G2 & G3

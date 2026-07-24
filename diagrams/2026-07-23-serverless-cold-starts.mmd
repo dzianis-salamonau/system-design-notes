@@ -1,0 +1,10 @@
+flowchart LR
+    R[Request] --> Q{Warm instance?}
+    Q -->|yes| W[Handler only: 5-50ms]
+    Q -->|no| P[Provision sandbox]
+    P --> RT[Load runtime + bundle]
+    RT --> INIT[Run init code]
+    INIT --> H[Handler]
+    M[Mitigations] -.->|smaller bundle| RT
+    M -.->|lazy init| INIT
+    M -.->|provisioned concurrency| Q

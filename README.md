@@ -94,6 +94,15 @@ Browse [`notes/`](notes/) chronologically, or search by topic. Each note follows
 | 2026-07-13 | [Batch vs stream processing](notes/2026-07-13-batch-vs-stream-processing.md) | Choose per pipeline: seconds-level reactions need streams, auditable numbers need batch |
 | 2026-07-14 | [JWT vs server-side sessions](notes/2026-07-14-jwt-vs-sessions.md) | Combine short-lived JWTs with rotating refresh tokens for local verification and bounded revocation |
 | 2026-07-15 | [Materialized views](notes/2026-07-15-materialized-views.md) | Precompute expensive aggregations into indexable snapshots refreshed on your freshness budget |
+| 2026-07-16 | [gRPC vs REST vs GraphQL](notes/2026-07-16-grpc-rest-graphql.md) | Match each API style to its boundary — gRPC inside, REST outside, GraphQL for client aggregation |
+| 2026-07-17 | [Distributed ID generation](notes/2026-07-17-distributed-id-generation.md) | Generate unique, time-sortable IDs on any node — UUIDv7 by default, Snowflake when 64 bits matter |
+| 2026-07-18 | [N+1 queries and DataLoader](notes/2026-07-18-n-plus-one-queries-dataloader.md) | Collapse one-query-per-item explosions with joins, IN batching, or transparent DataLoader batching |
+| 2026-07-19 | [SLIs, SLOs, and error budgets](notes/2026-07-19-sli-slo-error-budgets.md) | Define reliability in numbers and let the error budget arbitrate ship-vs-fix decisions |
+| 2026-07-20 | [Exactly-once delivery and deduplication](notes/2026-07-20-exactly-once-delivery.md) | Build exactly-once effects on at-least-once delivery with transactional dedup |
+| 2026-07-21 | [Time-series data storage](notes/2026-07-21-time-series-data-storage.md) | Chunk by time, compress old data, and downsample — retention by dropping chunks, not deleting rows |
+| 2026-07-22 | [Secrets management](notes/2026-07-22-secrets-management.md) | Replace static credentials with dynamic, short-lived secrets tied to platform identity |
+| 2026-07-23 | [Serverless cold starts](notes/2026-07-23-serverless-cold-starts.md) | Cut cold-start latency with smaller bundles, lazy init, and surgical provisioned concurrency |
+| 2026-07-24 | [Multi-tenancy data isolation models](notes/2026-07-24-multi-tenancy-isolation-models.md) | Choose pooled with RLS, schema-per-tenant, or silo databases — and tier them by what customers pay for |
 
 ---
 

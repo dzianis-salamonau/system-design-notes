@@ -1,0 +1,9 @@
+flowchart LR
+    M[Mobile / Web] -->|GraphQL: one query per screen| GQL[GraphQL BFF]
+    P[Partners] -->|REST + OpenAPI| GW[API Gateway]
+    GQL --> S1[Users Svc]
+    GQL --> S2[Orders Svc]
+    GW --> S1
+    GW --> S2
+    S1 <-->|gRPC proto contracts| S2
+    S2 <-->|gRPC| S3[Inventory Svc]

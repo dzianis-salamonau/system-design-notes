@@ -1,0 +1,7 @@
+flowchart LR
+    D[Devices / apps] -->|append-only| H[(Hot chunks - recent)]
+    H -->|after 7 days| C[(Compressed chunks)]
+    H -->|continuous aggregate| CA[(5-min rollups, 2 years)]
+    C -->|after 30 days| DROP[drop_chunks retention]
+    CA --> G[Dashboards]
+    H --> G

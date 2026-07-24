@@ -1,0 +1,5 @@
+flowchart TD
+    R[Request + tenant context] --> Router{Tenant tier?}
+    Router -->|self-serve| A[(Pooled: one DB, tenant_id + RLS)]
+    Router -->|mid-tier| B[(Schema-per-tenant)]
+    Router -->|enterprise| C[(Silo: DB per tenant)]

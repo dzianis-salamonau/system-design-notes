@@ -1,0 +1,14 @@
+sequenceDiagram
+    participant Q as Queue
+    participant W as Worker
+    participant DB as PostgreSQL
+
+    Q->>W: charge.requested (msg_id=m1)
+    W->>DB: BEGIN + INSERT processed_messages(m1) ON CONFLICT DO NOTHING
+    alt first time
+        W->>DB: apply charge + outbox, COMMIT
+        W->>Q: ack
+    else duplicate
+        W->>DB: ROLLBACK
+        W->>Q: ack (safe to drop)
+    end

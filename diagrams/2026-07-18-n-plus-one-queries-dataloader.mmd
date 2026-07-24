@@ -1,0 +1,10 @@
+sequenceDiagram
+    participant R as Resolvers (100 calls)
+    participant DL as DataLoader
+    participant DB as PostgreSQL
+
+    R->>DL: load(c1)...load(c100)
+    Note over DL: collect keys in one tick
+    DL->>DB: SELECT ... WHERE id = ANY($1)
+    DB-->>DL: 100 rows in ONE query
+    DL-->>R: each caller resolved
