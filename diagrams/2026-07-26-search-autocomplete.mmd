@@ -1,0 +1,7 @@
+flowchart LR
+    U[Keystroke 'iph'] -->|debounced| E[Edge cache - hot prefixes]
+    E -->|miss| S[Suggest service]
+    S --> R[(Redis: prefix → top-K terms)]
+    L[(Search logs)] -->|hourly batch| B[Top-K builder]
+    C[(Catalog changes)] --> B
+    B -->|rebuild| R

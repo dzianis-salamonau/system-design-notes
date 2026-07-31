@@ -1,0 +1,8 @@
+flowchart LR
+    S1[Scheduler pod 1 - leader]
+    S2[Scheduler pod 2 - standby]
+    LEASE[(Leader lease)] -.-> S1 & S2
+    S1 -->|tick due| Q[(Job queue)]
+    Q --> W1[Worker]
+    Q --> W2[Worker]
+    W1 & W2 --> DB[(job_runs: idempotency + audit)]

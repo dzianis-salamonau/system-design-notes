@@ -103,6 +103,13 @@ Browse [`notes/`](notes/) chronologically, or search by topic. Each note follows
 | 2026-07-22 | [Secrets management](notes/2026-07-22-secrets-management.md) | Replace static credentials with dynamic, short-lived secrets tied to platform identity |
 | 2026-07-23 | [Serverless cold starts](notes/2026-07-23-serverless-cold-starts.md) | Cut cold-start latency with smaller bundles, lazy init, and surgical provisioned concurrency |
 | 2026-07-24 | [Multi-tenancy data isolation models](notes/2026-07-24-multi-tenancy-isolation-models.md) | Choose pooled with RLS, schema-per-tenant, or silo databases — and tier them by what customers pay for |
+| 2026-07-25 | [Geospatial indexing](notes/2026-07-25-geospatial-indexing.md) | Answer "what's within 5km" with R-trees, geohashes, or H3 cells — B-trees on lat/lng can't |
+| 2026-07-26 | [Search autocomplete at scale](notes/2026-07-26-search-autocomplete.md) | Precompute top-K completions per prefix so every keystroke is one O(1) lookup |
+| 2026-07-27 | [Distributed cron and job scheduling](notes/2026-07-27-distributed-cron-job-scheduling.md) | Split tick from work: elect one scheduler, enqueue jobs, dedupe workers on run keys |
+| 2026-07-28 | [Vector search and embeddings](notes/2026-07-28-vector-search-embeddings.md) | Serve semantic search with HNSW indexes, hybrid BM25 merging, and reranking |
+| 2026-07-29 | [Chaos engineering](notes/2026-07-29-chaos-engineering.md) | Test failovers and retries on your schedule with hypothesis-driven fault injection |
+| 2026-07-30 | [Data deletion at scale (GDPR)](notes/2026-07-30-gdpr-deletion-at-scale.md) | Orchestrate erasure across every store and third party — crypto-shredding solves the backup problem |
+| 2026-07-31 | [Scaling Redis: Cluster and Sentinel](notes/2026-07-31-redis-cluster-scaling.md) | Pick replicas, Sentinel, or Cluster by actual bottleneck — and audit multi-key ops before sharding |
 
 ---
 

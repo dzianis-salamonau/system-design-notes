@@ -1,0 +1,7 @@
+flowchart LR
+    D[Documents] -->|chunk + embed| E[Embedding model]
+    E --> IDX[(HNSW vector index)]
+    Q[User query] -->|same model| E2[Query vector]
+    E2 --> IDX
+    IDX -->|approx top-K + filter| K[Candidates]
+    K -->|rerank| R[Final results]

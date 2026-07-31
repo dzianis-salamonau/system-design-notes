@@ -1,0 +1,9 @@
+flowchart TD
+    Q["Query: within 5km"] --> IDX{Spatial index}
+    IDX -->|PostGIS| GIST["GiST R-tree bounding boxes"]
+    IDX -->|Redis GEO| GH["Geohash in sorted set"]
+    IDX -->|Sharded| S2["S2 / H3 cell IDs"]
+    GIST --> EXACT["ST_DWithin exact filter"]
+    GH --> EXACT2[GEOSEARCH radius]
+    EXACT --> R[Nearest couriers]
+    EXACT2 --> R

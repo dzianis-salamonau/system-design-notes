@@ -1,0 +1,9 @@
+flowchart LR
+    REQ[Erasure request] --> V[Verify + log]
+    V --> ORCH[Deletion orchestrator saga]
+    ORCH --> S1[Services: delete / anonymize]
+    ORCH --> S3[Caches, search, blobs]
+    ORCH --> T[Third-party APIs]
+    KEYS[(Per-user key)] -->|destroy = crypto-erase backups| ORCH
+    S1 & S3 & T --> AUD[(Audit log)]
+    AUD --> CERT[Completion certificate ≤ 30 days]

@@ -1,0 +1,8 @@
+flowchart LR
+    H[Hypothesis] --> S[Steady state SLIs]
+    S --> E[Inject minimal failure]
+    E --> M{SLIs within bounds?}
+    M -->|yes| X[Expand scope]
+    M -->|no| A[Auto-abort + fix]
+    A --> H2[Re-run to verify]
+    X --> CI[Automate as regression suite]

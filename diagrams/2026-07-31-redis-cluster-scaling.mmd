@@ -1,0 +1,9 @@
+flowchart TD
+    K["key → CRC16 mod 16384 = slot"] --> S1
+    subgraph Cluster["3 shards × (primary + replica)"]
+        S1[Primary A slots 0-5460] --- R1[Replica A]
+        S2[Primary B slots 5461-10922] --- R2[Replica B]
+        S3[Primary C slots 10923-16383] --- R3[Replica C]
+    end
+    C[Cluster-aware client] --> S1 & S2 & S3
+    S1 -.->|gossip + failover vote| S2 & S3
