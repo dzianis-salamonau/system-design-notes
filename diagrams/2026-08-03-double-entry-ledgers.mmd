@@ -1,0 +1,7 @@
+flowchart LR
+    E["Transfer $50 user → merchant"] --> TX[(transactions + idempotency_key)]
+    TX --> L1["entry: user DEBIT 50"]
+    TX --> L2["entry: merchant CREDIT 50"]
+    L1 & L2 --> LED[(ledger_entries - append-only)]
+    LED -->|SUM per account| BAL[Derived balances]
+    LED -->|zero-sum per tx| INV[Reconciliation checks]

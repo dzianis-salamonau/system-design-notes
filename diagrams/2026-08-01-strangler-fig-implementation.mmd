@@ -1,0 +1,10 @@
+flowchart LR
+    U[Users] --> F[Facade - NGINX / Istio]
+    F -->|migrated routes| N[New services]
+    F -->|everything else| L[Legacy monolith]
+    F -.->|shadow copy| N
+    N -.-> CMP[Comparator - match/mismatch metrics]
+    L -.-> CMP
+    LDB[(Legacy DB)] -->|CDC sync| NDB[(New service DB)]
+    CMP --> M[Shift automation]
+    M -->|error gate passed| F

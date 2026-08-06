@@ -1,0 +1,8 @@
+flowchart LR
+    U["UPDATE row"] --> V1["new version written, old stays (dead tuple)"]
+    V1 --> DT[Dead tuples accumulate]
+    DT -->|threshold| AV[Autovacuum worker]
+    AV --> CLEAN[Space marked reusable]
+    AV --> FREEZE[Freeze XIDs - wraparound defense]
+    LONG[Long transaction pins horizon] -.->|blocks cleanup| AV
+    CLEAN --> FSM[Space reused by writes]

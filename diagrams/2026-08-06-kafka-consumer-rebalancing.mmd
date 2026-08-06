@@ -1,0 +1,12 @@
+flowchart LR
+    subgraph G["Consumer group - 48 partitions"]
+        C1[Consumer 1: p0-p15]
+        C2[Consumer 2: p16-p31]
+        C3[Consumer 3: p32-p47]
+    end
+    GC[Group coordinator]
+    C1 & C2 & C3 -->|heartbeats| GC
+    C3 -->|crash / deploy| X[Member change]
+    X --> GC
+    GC -->|cooperative: only p32-p47 move| C1 & C2
+    GC -.->|eager: ALL partitions revoked| C1 & C2

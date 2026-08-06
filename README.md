@@ -110,6 +110,12 @@ Browse [`notes/`](notes/) chronologically, or search by topic. Each note follows
 | 2026-07-29 | [Chaos engineering](notes/2026-07-29-chaos-engineering.md) | Test failovers and retries on your schedule with hypothesis-driven fault injection |
 | 2026-07-30 | [Data deletion at scale (GDPR)](notes/2026-07-30-gdpr-deletion-at-scale.md) | Orchestrate erasure across every store and third party — crypto-shredding solves the backup problem |
 | 2026-07-31 | [Scaling Redis: Cluster and Sentinel](notes/2026-07-31-redis-cluster-scaling.md) | Pick replicas, Sentinel, or Cluster by actual bottleneck — and audit multi-key ops before sharding |
+| 2026-08-01 | [Implementing the strangler fig](notes/2026-08-01-strangler-fig-implementation.md) | The execution playbook: facade routing, shadow-mode parity proof, CDC data phases, automated cutover |
+| 2026-08-02 | [OAuth 2.0 and OIDC flows in practice](notes/2026-08-02-oauth2-oidc-flows.md) | One right flow per client type — PKCE everywhere, and the token validation checks that actually break |
+| 2026-08-03 | [Double-entry ledgers for payments](notes/2026-08-03-double-entry-ledgers.md) | Record immutable money movements, derive balances, and make every discrepancy a queryable diff |
+| 2026-08-04 | [Notification fan-out at scale](notes/2026-08-04-notification-fanout.md) | Paginated fan-out, preference filtering, priority-isolated queues, and the feedback loops that protect deliverability |
+| 2026-08-05 | [PostgreSQL VACUUM and bloat](notes/2026-08-05-postgres-vacuum-bloat.md) | Tune autovacuum per hot table, bound long transactions, and watch the wraparound clock |
+| 2026-08-06 | [Kafka consumer group rebalancing](notes/2026-08-06-kafka-consumer-rebalancing.md) | Cooperative sticky assignment and static membership turn deploy-time rebalance storms into non-events |
 
 ---
 

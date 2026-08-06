@@ -1,0 +1,10 @@
+flowchart LR
+    EV[Domain event] --> ING[Ingest topic]
+    ING --> FAN[Fan-out workers - paginated]
+    FAN --> PREF[Preferences + quiet hours]
+    PREF --> DED[Dedup event × user × channel]
+    DED --> QP[Priority queues]
+    QP --> CH1[Push]
+    QP --> CH2[Email]
+    QP --> CH3[In-app inbox]
+    CH1 & CH2 --> ST[Delivery status → feedback loop]

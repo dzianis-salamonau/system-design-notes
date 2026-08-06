@@ -1,0 +1,14 @@
+sequenceDiagram
+    participant B as Browser / App
+    participant C as Backend (client)
+    participant AS as Auth Server
+    participant API as Resource API
+
+    B->>AS: /authorize + PKCE challenge
+    AS->>B: login → redirect with code
+    B->>C: callback?code=...
+    C->>AS: POST /token (code + verifier)
+    AS-->>C: access + id + refresh tokens
+    C->>API: Bearer access_token
+    API->>API: verify sig, iss, aud, exp
+    API-->>C: 200
