@@ -1,0 +1,8 @@
+flowchart LR
+    D[Delete request] --> W{Type?}
+    W -->|fat-finger, grace window| SD[Soft delete + partial indexes]
+    W -->|lifecycle| AR[Archive tables / cold storage]
+    W -->|compliance PII| HD[Hard delete / anonymize]
+    SD -->|grace expired| AR
+    AR -->|retention expired| HD
+    SD -->|restore| LIVE[(Live tables)]

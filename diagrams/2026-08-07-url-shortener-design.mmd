@@ -1,0 +1,10 @@
+flowchart LR
+    C[Create] --> API[API]
+    API --> GEN[Snowflake → base62]
+    GEN --> DB[(PostgreSQL)]
+    R[GET /x7Kp2q] --> EDGE[Edge cache]
+    EDGE -->|miss| RED[Redirect service]
+    RED --> RC[(Redis code → url)]
+    RC -->|miss| DB
+    RED -->|302| U[Browser]
+    RED -.->|async event| AN[(Analytics)]

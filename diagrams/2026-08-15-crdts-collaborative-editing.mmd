@@ -1,0 +1,7 @@
+flowchart LR
+    A[Client A - local CRDT] -->|edits apply instantly| A
+    B[Client B - local CRDT] -->|edits apply instantly| B
+    A <-->|updates, any order| R[Relay + persistence]
+    B <-->|updates| R
+    A & B -->|commutative merge| CONV[Identical converged state]
+    R --> S[(Snapshot store)]

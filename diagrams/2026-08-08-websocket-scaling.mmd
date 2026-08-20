@@ -1,0 +1,8 @@
+flowchart LR
+    C1[Client A] --> LB[L4 LB least-connections]
+    C2[Client B] --> LB
+    LB --> G1[Gateway pod 1]
+    LB --> G2[Gateway pod 2]
+    G1 & G2 <-->|user/room channels| B[Broker - Redis pub/sub]
+    S[App services] -->|publish user:42| B
+    G1 & G2 -->|TTL heartbeats| P[(Presence store)]

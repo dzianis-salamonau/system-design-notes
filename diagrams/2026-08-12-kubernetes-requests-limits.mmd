@@ -1,0 +1,7 @@
+flowchart TD
+    P[Pod spec: requests / limits] --> SCHED[Scheduler places by REQUESTS]
+    P --> RT[Node runtime]
+    RT --> CPU[CPU over limit → throttled]
+    RT --> MEM[Memory over limit → OOMKilled]
+    P --> QOS[QoS: Guaranteed / Burstable / BestEffort]
+    QOS --> EV[Eviction order under node pressure]

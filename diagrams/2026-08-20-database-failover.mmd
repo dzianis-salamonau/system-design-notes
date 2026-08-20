@@ -1,0 +1,9 @@
+flowchart LR
+    APP[App pods] --> PB[PgBouncer / RDS Proxy]
+    PB --> EP[Writer endpoint - DNS/VIP]
+    EP --> P[(Primary)]
+    P -->|replication| R1[(Replica 1)]
+    P --> R2[(Replica 2)]
+    HB[Failover manager - Patroni] -->|promote + repoint| EP
+    APP -.->|reads| RE[Reader endpoint] --> R1 & R2
+    P -.->|fencing blocks writes| X[Demoted node]

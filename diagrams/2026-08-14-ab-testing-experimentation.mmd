@@ -1,0 +1,8 @@
+flowchart LR
+    U[Request + stable user ID] --> A[Deterministic hash assignment]
+    A --> EXP[Exposure event]
+    A --> V[Variant renders]
+    V --> EV[Behavioral events]
+    EXP & EV --> DW[(Warehouse)]
+    DW --> AN[Analysis: SRM check, CUPED, guardrails]
+    AN --> DEC[Ship / kill / extend]

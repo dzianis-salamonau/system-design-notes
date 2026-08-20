@@ -1,0 +1,8 @@
+flowchart LR
+    API[API handlers] -->|same-transaction outbox| DB[(App DB + audit outbox)]
+    DB -->|relay| ST[(Append-only audit store)]
+    ADM[Admin panel] --> API
+    ST --> HASH[Hash chain - tamper evidence]
+    ST --> Q[Query + export API]
+    Q --> CUST[Customer audit trail UI]
+    Q --> SIEM[Security / SIEM]

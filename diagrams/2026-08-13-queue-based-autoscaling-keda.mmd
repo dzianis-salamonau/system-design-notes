@@ -1,0 +1,7 @@
+flowchart LR
+    P[Producers] --> Q[(Queue)]
+    KEDA[KEDA scaler polls depth] -->|metrics| HPA[HPA]
+    Q -.->|depth / lag| KEDA
+    HPA -->|scale 0..N| W[Worker deployment]
+    Q --> W
+    W -->|drain on SIGTERM| DONE[Graceful completion]

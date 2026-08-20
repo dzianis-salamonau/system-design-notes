@@ -1,0 +1,7 @@
+flowchart LR
+    P1[Pods → stdout JSON] --> AG[DaemonSet agent - parse + enrich]
+    AG --> BUF[Buffer - Kafka / disk]
+    BUF --> ST[(Store: Loki labels-only or ELK full-text)]
+    ST --> COLD[(Object storage cold tier)]
+    ST --> G[Grafana / Kibana]
+    ST -.->|shared request IDs| TR[Tracing backend]

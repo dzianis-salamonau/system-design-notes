@@ -1,0 +1,9 @@
+flowchart LR
+    T[Transactional] --> STA[mail.yourapp.com pool]
+    M[Marketing] --> STB[news.yourapp.com pool]
+    STA & STB -->|SPF + DKIM signed| MBX[Mailbox providers]
+    DNS[(SPF / DKIM / DMARC records)] -.-> MBX
+    MBX -->|bounces + complaints| FB[Feedback processor]
+    MBX -->|DMARC reports| REP[Reputation dashboards]
+    FB --> SUP[(Suppression list)]
+    SUP -.->|blocks resends| STA & STB

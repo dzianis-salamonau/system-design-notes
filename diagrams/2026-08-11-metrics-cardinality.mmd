@@ -1,0 +1,7 @@
+flowchart TD
+    Q[Question type?] --> A[Aggregate health]
+    Q --> B[Per-entity forensics]
+    A --> M[Metrics - bounded labels only]
+    B --> T[Traces + logs - high-cardinality fields]
+    M --> LIM[Series limits + relabeling + quotas]
+    T --> X[Exemplars link metrics → traces]

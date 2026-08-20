@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant B as Browser cache
+    participant CDN as CDN
+    participant O as Origin
+
+    B->>CDN: GET /api/products
+    CDN->>O: forward
+    O-->>CDN: 200 + ETag v42 + Cache-Control
+    CDN-->>B: 200 (cached both layers)
+    B->>CDN: GET + If-None-Match v42
+    CDN-->>B: 304 Not Modified
+    O->>CDN: purge on data change
+    B->>CDN: GET + If-None-Match v42
+    CDN->>O: revalidate
+    O-->>CDN: 200 + ETag v43

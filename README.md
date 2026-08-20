@@ -116,6 +116,20 @@ Browse [`notes/`](notes/) chronologically, or search by topic. Each note follows
 | 2026-08-04 | [Notification fan-out at scale](notes/2026-08-04-notification-fanout.md) | Paginated fan-out, preference filtering, priority-isolated queues, and the feedback loops that protect deliverability |
 | 2026-08-05 | [PostgreSQL VACUUM and bloat](notes/2026-08-05-postgres-vacuum-bloat.md) | Tune autovacuum per hot table, bound long transactions, and watch the wraparound clock |
 | 2026-08-06 | [Kafka consumer group rebalancing](notes/2026-08-06-kafka-consumer-rebalancing.md) | Cooperative sticky assignment and static membership turn deploy-time rebalance storms into non-events |
+| 2026-08-07 | [URL shortener design](notes/2026-08-07-url-shortener-design.md) | Scrambled snowflake codes, cache-everything redirects, async analytics — and the abuse layer interviews skip |
+| 2026-08-08 | [Scaling WebSockets](notes/2026-08-08-websocket-scaling.md) | Split connection gateways from business logic, route via pub/sub, and track presence with TTL leases |
+| 2026-08-09 | [Resumable large file uploads](notes/2026-08-09-resumable-file-uploads.md) | Multipart presigned uploads direct to storage — resume from the last confirmed part, never restart from zero |
+| 2026-08-10 | [HTTP caching: Cache-Control and ETags](notes/2026-08-10-http-caching-etags.md) | Explicit cache headers on every response, cheap-version ETags for 304s, and surrogate-key purging at the CDN |
+| 2026-08-11 | [Metrics cardinality](notes/2026-08-11-metrics-cardinality.md) | Every label combination is a stored series — bounded labels in metrics, IDs in traces, quotas as guardrails |
+| 2026-08-12 | [Kubernetes requests, limits, and OOMKills](notes/2026-08-12-kubernetes-requests-limits.md) | Requests place and protect pods, limits throttle or kill them — size both from measured usage, not vibes |
+| 2026-08-13 | [Queue-based autoscaling with KEDA](notes/2026-08-13-queue-based-autoscaling-keda.md) | Scale workers on queue depth, not CPU — with scale-to-zero and drain-safe scale-in |
+| 2026-08-14 | [A/B testing infrastructure](notes/2026-08-14-ab-testing-experimentation.md) | Deterministic hash assignment, exposure logging, SRM checks, and the statistics that stop you shipping noise |
+| 2026-08-15 | [CRDTs and collaborative editing](notes/2026-08-15-crdts-collaborative-editing.md) | Character identity instead of position makes concurrent edits merge by construction — via Yjs, never hand-rolled |
+| 2026-08-16 | [Email deliverability](notes/2026-08-16-email-deliverability.md) | SPF, DKIM, and DMARC alignment plus stream separation and warm-up — inbox placement is reputation management |
+| 2026-08-17 | [Audit logging](notes/2026-08-17-audit-logging.md) | Outbox-captured, append-only, tamper-evident records of who did what — a compliance feature, not a log config |
+| 2026-08-18 | [Soft deletes and archival](notes/2026-08-18-soft-deletes-archival.md) | Soft delete with partial indexes for undo, then a scheduled ladder: archive out of live tables, erase on the compliance clock |
+| 2026-08-19 | [Log aggregation pipelines](notes/2026-08-19-log-aggregation-pipelines.md) | stdout + DaemonSet agents, a buffer tier for storms, and the index-labels-vs-index-everything cost decision |
+| 2026-08-20 | [Database failover and connection resilience](notes/2026-08-20-database-failover.md) | The promotion is fast; your pods are slow — proxy layers, timeouts, fencing, and drills close the gap |
 
 ---
 

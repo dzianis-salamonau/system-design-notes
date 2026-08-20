@@ -1,0 +1,14 @@
+sequenceDiagram
+    participant C as Client
+    participant API as API (coordinator)
+    participant S3 as Object storage
+
+    C->>API: POST /uploads {name, size, hash}
+    API->>S3: CreateMultipartUpload
+    API-->>C: uploadId + presigned part URLs
+    C->>S3: PUT parts 1..36 (parallel)
+    Note over C: network drops
+    C->>API: GET status → parts 1-36 confirmed
+    C->>S3: resume from part 37
+    C->>API: POST complete {etags}
+    API->>S3: CompleteMultipartUpload + verify
