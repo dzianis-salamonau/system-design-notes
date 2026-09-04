@@ -1,15 +1,17 @@
 # system-design-notes
 
-Daily architecture repository — one concept, one diagram, one scalability problem solved.
+Architecture notes, three times a week — one concept, one diagram, one scalability problem solved.
 
 ## What this is
 
 A public log of system design decisions, trade-offs, and patterns. Each entry is a short, practical note you can reference in interviews, design reviews, or when building production systems.
 
-**Every day:**
+**Every Monday, Wednesday, and Friday:**
 - One markdown note
 - One diagram
 - One real scalability problem solved
+
+*(Entries through 2026-08-20 were published daily.)*
 
 ## Topics
 
@@ -25,7 +27,7 @@ A public log of system design decisions, trade-offs, and patterns. Each entry is
 
 ```
 notes/
-  YYYY-MM-DD-topic-slug.md    # daily note + embedded diagram
+  YYYY-MM-DD-topic-slug.md    # note + embedded diagram
 diagrams/
   YYYY-MM-DD-topic-slug.mmd   # source diagram (Mermaid)
 ```
@@ -130,6 +132,13 @@ Browse [`notes/`](notes/) chronologically, or search by topic. Each note follows
 | 2026-08-18 | [Soft deletes and archival](notes/2026-08-18-soft-deletes-archival.md) | Soft delete with partial indexes for undo, then a scheduled ladder: archive out of live tables, erase on the compliance clock |
 | 2026-08-19 | [Log aggregation pipelines](notes/2026-08-19-log-aggregation-pipelines.md) | stdout + DaemonSet agents, a buffer tier for storms, and the index-labels-vs-index-everything cost decision |
 | 2026-08-20 | [Database failover and connection resilience](notes/2026-08-20-database-failover.md) | The promotion is fast; your pods are slow — proxy layers, timeouts, fencing, and drills close the gap |
+| 2026-08-21 | [News feed design](notes/2026-08-21-news-feed-design.md) | Hybrid fan-out: push for normal users, pull-merge for celebrities, and skip the inactive entirely |
+| 2026-08-24 | [Chat message storage at scale](notes/2026-08-24-chat-message-storage.md) | Partition by (channel, time bucket) with snowflake clustering — the query becomes the disk layout |
+| 2026-08-26 | [Video streaming pipeline](notes/2026-08-26-video-streaming-pipeline.md) | Transcode once into an adaptive ladder, chunk into segments, let the player pick quality per segment |
+| 2026-08-28 | [Probabilistic data structures](notes/2026-08-28-probabilistic-data-structures.md) | HyperLogLog, count-min sketch, and Top-K — bounded-error answers in kilobytes instead of gigabytes |
+| 2026-08-31 | [Event schema evolution and registries](notes/2026-08-31-schema-evolution-registry.md) | Stored events live forever — registries with transitive compatibility move the break from 3am to CI |
+| 2026-09-02 | [Service discovery](notes/2026-09-02-service-discovery.md) | Registration via readiness probes, resolution via DNS/VIP or client-side LB — and stale-beats-empty when the registry hiccups |
+| 2026-09-04 | [Recommendation system architecture](notes/2026-09-04-recommendation-systems.md) | The funnel: cheap retrieval to hundreds, learned ranking, business rules last — with a feature store killing train/serve skew |
 
 ---
 

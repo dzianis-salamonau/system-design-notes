@@ -1,0 +1,8 @@
+flowchart LR
+    W[Send message] --> ID[Snowflake message ID]
+    ID --> PT["Partition (channel_id, bucket), cluster message_id DESC"]
+    PT --> C[(Cassandra / Scylla)]
+    R[Load latest 50] --> CUR[Read current bucket, step back if short] --> C
+    C --> HOT[Recent buckets - hot]
+    C --> COLDB[Old buckets - cold]
+    SRCH[Search] -.->|CDC| ES[(Elasticsearch)]
