@@ -1,0 +1,9 @@
+flowchart LR
+    U[Request: user u] --> RET[Retrieval: ANN + co-occurrence + session + popularity]
+    RET -->|~500 candidates| RANK[Ranking model]
+    RANK --> BIZ[Business rules + diversity + exploration]
+    BIZ --> OUT[Top 20 shown]
+    FS[(Feature store)] --> RANK
+    EV[Interaction events] --> PIPE[Train + build indexes]
+    PIPE --> RET
+    PIPE --> FS
