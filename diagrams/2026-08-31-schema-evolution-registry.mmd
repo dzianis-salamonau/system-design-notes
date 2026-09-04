@@ -1,0 +1,7 @@
+flowchart LR
+    P[Producer deploy] -->|register v3 + compat check| REG[(Schema registry)]
+    REG -->|pass → schema ID 3| P
+    REG -.->|fail| CI[CI blocks deploy]
+    P -->|message = id 3 + binary| K[(Kafka topic)]
+    K --> C[Consumer]
+    C -->|fetch schema 3, cached| REG

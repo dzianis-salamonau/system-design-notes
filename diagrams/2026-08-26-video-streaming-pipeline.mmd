@@ -1,0 +1,9 @@
+flowchart LR
+    U[Resumable upload] --> RAW[(Raw bucket)]
+    RAW -->|event| Q[Transcode queue]
+    Q --> T[Workers: rendition ladder + thumbnails]
+    T --> SEG[Segment + package HLS/DASH]
+    SEG --> OUT[(Delivery bucket)]
+    OUT --> CDN[CDN]
+    CDN --> PL[Player: ABR picks rendition per segment]
+    T -.->|progress| ST[processing → ready]

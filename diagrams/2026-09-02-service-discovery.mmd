@@ -1,0 +1,7 @@
+flowchart LR
+    B1[Service B pod 1] -->|register + health| REG[(Registry - etcd / Consul)]
+    B2[Service B pod 2] --> REG
+    A[Service A] -->|stable name| VIP[DNS / Virtual IP]
+    REG -->|live endpoints| VIP
+    VIP --> B1 & B2
+    A -.->|client-side LB watches| REG

@@ -1,0 +1,7 @@
+flowchart LR
+    EV[Event stream] --> Q{Question shape?}
+    Q -->|membership| BF[Bloom filter]
+    Q -->|distinct count| HLL[HyperLogLog ~12KB]
+    Q -->|frequency| CMS[Count-min sketch]
+    Q -->|top K| TK[Top-K = CMS + heap]
+    HLL & CMS & TK --> MRG[Mergeable across shards / windows]
