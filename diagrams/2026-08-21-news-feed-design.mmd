@@ -1,0 +1,9 @@
+flowchart LR
+    P[New post] --> CLS{Author class?}
+    CLS -->|normal user| FO[Fan-out on write to follower feeds]
+    CLS -->|celebrity| ST[Store once, no fan-out]
+    FO --> FC[(Redis feed lists - recent IDs)]
+    R[Feed request] --> MRG[Merge: own cache + celebrity recents]
+    FC --> MRG
+    ST --> MRG
+    MRG --> HYD[Hydrate + rank] --> OUT[Feed]
